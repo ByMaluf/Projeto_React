@@ -8,7 +8,7 @@ Teste de criação do repositório
 
 Ciclo de vida dos Componentes - Class Components
 
-#### COMPONENTES FUNCIONAIS POSSUEM CICLO DE VIDA?
+### COMPONENTES FUNCIONAIS POSSUEM CICLO DE VIDA?
 
 Sim, os function components têm ciclo de vida. No en-tanto, o ciclo de vida dos function components é diferente do ciclo de vida dos class components.
 
@@ -18,7 +18,7 @@ Os hooks são funções que podem ser usadas para adi-cionar funcionalidade ao c
 
 Portanto, a resposta é sim, os function components têm ciclo de vida, mas é um ciclo de vida diferente do ciclo de vida dos class components.
 
-#### FUNÇÃO NÃO É MÉTODO?
+### FUNÇÃO NÃO É MÉTODO?
 
 Em programação, um método é uma função que é as-sociada a um objeto. Um objeto é uma entidade que pode armazenar dados e executar ações. Um método geralmente é usado para manipular os dados ou executar ações em um objeto.
 
@@ -35,8 +35,8 @@ Em contraste, os Hooks, como useState e useEffect, foram projetados especificame
 
 Portanto, a prática recomendada é a seguinte:
 
-    • Em componentes de classe, continue a usar os méto-dos de ciclo de vida tradicionais.
-    • Em componentes funcionais, use Hooks, como useSta-te e useEffect, para gerenciar estado e efeitos colate-rais, pois essa é a abordagem moderna e recomendada pelo React.
+  • Em componentes de classe, continue a usar os méto-dos de ciclo de vida tradicionais.
+  • Em componentes funcionais, use Hooks, como useSta-te e useEffect, para gerenciar estado e efeitos colate-rais, pois essa é a abordagem moderna e recomendada pelo React.
 
 Dessa forma, você seguirá as práticas recomendadas e man-terá seu código mais claro e fácil de entender para outros desenvolvedores.
 
