@@ -17,3 +17,6 @@
 
 ## Commit N(7)
 - Class Components - Trabalhando com listas (Feed)
+
+## Commit N(8)
+- Class Components - Manipulando formulários 
