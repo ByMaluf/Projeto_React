@@ -15,3 +15,5 @@
 ## Commit N(6)
 - Class Components - Renderização Condicional
 
+## Commit N(7)
+- Class Components - Trabalhando com listas (Feed)

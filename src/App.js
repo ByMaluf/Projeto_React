@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Feed from "./Components/Feed";
 import './index.css';
 
 class Membro extends Component {
@@ -6,40 +7,29 @@ class Membro extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: true
-    };
-
-    this.sair = this.sair.bind(this);
-    this.entrar = this.entrar.bind(this);
-
+      feed: [
+        {id: 1, username: 'Matheus', curtidas: 10, comentarios: 2},
+        {id: 2, username: 'Lucas', curtidas: 120, comentarios: 24},
+        {id: 3, username: 'Amanda', curtidas: 30, comentarios: 12},
+        {id: 4, username: 'Ricardo', curtidas: 1, comentarios: 0},
+      ]
+    }; 
   }
 
-  sair() {
-    this.setState({ status: false })
-  }
-
-  entrar() {
-    this.setState({ status: true })
-  }
+  
 
   render() {
     return (
       <div>
-        {/* {this.state.status === 1 && <h1>Bem-Vindo ao sistema!</h1>} */}
-
-        {/* Ou pode-se fazer com o OPERADOR TERNÁRIO */}
-
-        {this.state.status ?
-          <div>
-            <h2>Bem-vindo ao Sistema</h2>
-            <button onClick={this.sair} > Sair do sistema</button>
-          </div>
-          :
-          <div>
-            <h2>Olá Visitante, faça o login!</h2>
-            <button onClick={this.entrar}>Entra no sistema</button>
-          </div>
-        }
+       {this.state.feed.map((item) => {
+        return(
+          <Feed
+           key={item.id}
+           username={item.username}
+           curtidas={item.curtidas}
+           comentarios={item.comentarios}/>
+        );
+       } )}
       </div>
 
     );
