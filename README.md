@@ -28,3 +28,6 @@
 - Class Components - Manipulando formulários (prt 2)
 - Correção e otimização do código
 - Manutenção de documentação
+
+## Commit N(11)
+- Class Components - Projeto Biscoito da sorte!!
