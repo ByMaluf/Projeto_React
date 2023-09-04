@@ -1,52 +1,65 @@
 import React, { Component } from "react";
-import "./index.css";
 import "./styles.css";
 
 class Membro extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      textoFrase: "",
+      numero: 0,
+      botao: "VAI",
     };
-    this.quebraBiscoito = this.quebraBiscoito.bind(this);
-    this.frases = [
-      "Siga os bons e aprenda com eles.",
-      "O bom-senso vale mais do que muito conhecimento.",
-      "O riso é a menor distância entre duas pessoas.",
-      "Deixe de lado as preocupações e seja feliz.",
-      "Realize o óbvio, pense no improvável e conquiste o impossível.",
-      "Acredite em milagres, mas não dependa deles.",
-      "A maior barreira para o sucesso é o medo do fracasso.",
-    ];
+
+    this.timer = null;
+    this.vai = this.vai.bind(this);
+    this.limpar = this.limpar.bind(this);
   }
 
-  quebraBiscoito() {
+  vai() {
     let state = this.state;
-    let numeroAleatorio = Math.floor(Math.random() * this.frases.length);
-    state.textoFrase = '"' + this.frases[numeroAleatorio] + '"';
-    this.setState({ state });
+    if (this.timer !== null) {
+      clearInterval(this.timer);
+      this.timer = null;
+      state.botao = "VAI";
+    } else {
+      this.timer = setInterval(() => {
+        let state = this.state;
+        state.numero += 0.1;
+        this.setState(state);
+      }, 100);
+      state.botao = "PAUSAR";
+    }
+    this.setState(state);
+  }
+
+  limpar() {
+    if (this.timer !== null) {
+      clearInterval(this.timer);
+      this.timer = null;
+    }
+
+    let state = this.state;
+    state.numero = 0;
+    state.botao = "VAI";
+    this.setState(state);
   }
 
   render() {
     return (
       <div className="container">
         <img
-          src={require("./assets/biscoito.png")}
-          alt="biscoito da sorte"
+          src={require("./assets/cronometro.png")}
+          alt="cronometro"
           className="img"
         />
-        <Botao nome="Abrir biscoito" acaoBtn={this.quebraBiscoito} />
-        <h3 className="textoFrase">{this.state.textoFrase}</h3>
-      </div>
-    );
-  }
-}
-
-class Botao extends Component {
-  render() {
-    return (
-      <div>
-        <button onClick={this.props.acaoBtn}>Abrir Biscoito</button>
+        <p className="timer">{this.state.numero.toFixed(1)}</p>
+        <div className="areaBtn">
+          <button onClick={this.vai} className="botao">
+            {this.state.botao}
+          </button>
+          <button onClick={this.limpar} className="botao">
+            LIMPAR
+          </button>
+        </div>
       </div>
     );
   }
