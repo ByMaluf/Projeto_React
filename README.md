@@ -19,7 +19,12 @@
 - Class Components - Trabalhando com listas (Feed)
 
 ## Commit N(8)
-- Class Components - Manipulando formulários 
+- Class Components - Manipulando formulários (prt 1)
 
-## Commit N(8)
+## Commit N(9)
 - Class Components - Praticando formulários 
+
+## Commit N(10)
+- Class Components - Manipulando formulários (prt 2)
+- Correção e otimização do código
+- Manutenção de documentação
