@@ -1,68 +1,39 @@
-import React, { Component } from "react";
-import "./styles.css";
+import React, { useState } from 'react';
 
-class Membro extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      numero: 0,
-      botao: "VAI",
-    };
+function App() {
+  const [tarefas, setTarefas] = React.useState([
+    'Pagar a conta de luz',
+    'Estudar React hooks',
+  ]);
 
-    this.timer = null;
-    this.vai = this.vai.bind(this);
-    this.limpar = this.limpar.bind(this);
+  const [input, setInput] = React.useState('');
+
+  function handleAdd() {
+    setTarefas([...tarefas, input]);
+    setInput('');
   }
 
-  vai() {
-    let state = this.state;
-    if (this.timer !== null) {
-      clearInterval(this.timer);
-      this.timer = null;
-      state.botao = "VAI";
-    } else {
-      this.timer = setInterval(() => {
-        let state = this.state;
-        state.numero += 0.1;
-        this.setState(state);
-      }, 100);
-      state.botao = "PAUSAR";
-    }
-    this.setState(state);
-  }
+  return (
+    <React.Fragment>
+      <h1>Hooks</h1>
 
-  limpar() {
-    if (this.timer !== null) {
-      clearInterval(this.timer);
-      this.timer = null;
-    }
+      <ul>
+        {tarefas.map((tarefa, index) => (
+          <li key={index}>{tarefa}</li>
+        ))}
+      </ul>
 
-    let state = this.state;
-    state.numero = 0;
-    state.botao = "VAI";
-    this.setState(state);
-  }
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)} // Corrigido aqui
+      />
 
-  render() {
-    return (
-      <div className="container">
-        <img
-          src={require("./assets/cronometro.png")}
-          alt="cronometro"
-          className="img"
-        />
-        <p className="timer">{this.state.numero.toFixed(1)}</p>
-        <div className="areaBtn">
-          <button onClick={this.vai} className="botao">
-            {this.state.botao}
-          </button>
-          <button onClick={this.limpar} className="botao">
-            LIMPAR
-          </button>
-        </div>
-      </div>
-    );
-  }
+      <button type="button" onClick={handleAdd}>
+        Adicionar
+      </button>
+    </React.Fragment>
+  );
 }
 
-export default Membro;
+export default App;
