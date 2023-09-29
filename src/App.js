@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 function App() {
   const [tarefas, setTarefas] = React.useState([
@@ -25,6 +25,8 @@ function App() {
     setInput('');
   }
 
+  const totalTarefas = useMemo(() => tarefas.length, [tarefas])
+
   return (
     <React.Fragment>
       <h1>Hooks</h1>
@@ -34,6 +36,10 @@ function App() {
           <li key={index}>{tarefa}</li>
         ))}
       </ul>
+
+      <br />
+
+      <strong>Você tem {totalTarefas} tarefas!</strong> <br />
 
       <input
         type="text"

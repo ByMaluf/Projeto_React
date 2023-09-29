@@ -58,3 +58,8 @@
 - Usando os Hooks
 - React.useEffect
 
+## Commit N(15)
+
+- Usando os Hooks
+- React.useMemo
+
