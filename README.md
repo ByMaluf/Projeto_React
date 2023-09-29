@@ -63,3 +63,8 @@
 - Usando os Hooks
 - React.useMemo
 
+## Commit N(16)
+
+- Usando os Hooks
+- React.useCallback
+
